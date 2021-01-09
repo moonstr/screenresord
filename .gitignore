@@ -6,3 +6,4 @@ local.properties
 build/
 *.class
 link.xml
+git add README.md
