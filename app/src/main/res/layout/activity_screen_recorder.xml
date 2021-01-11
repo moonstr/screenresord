@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="360dp"
+        android:layout_height="460dp"
         android:background="@drawable/home_top_bg">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -23,12 +23,14 @@
                     android:gravity="center_horizontal"
                     android:layout_marginRight="8dp">
                     <TextView
+                        android:id="@+id/shu"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="竖屏录制"
                         android:textSize="14sp"
                         android:textColor="#ffffff"/>
                     <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/shu_cir"
                         android:layout_width="4dp"
                         android:layout_height="4dp"
                         android:src="#ffffff"/>
@@ -40,12 +42,14 @@
                     android:gravity="center_horizontal"
                     android:layout_marginLeft="8dp">
                     <TextView
+                        android:id="@+id/heng"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="竖屏录制"
                         android:textSize="14sp"
                         android:textColor="#ffffff"/>
                     <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/heng_cir"
                         android:layout_width="4dp"
                         android:layout_height="4dp"
                         android:src="#ffffff"/>
@@ -56,15 +60,68 @@
         <com.king.view.waveview.WaveView
             android:id="@+id/waveView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:layout_alignParentBottom="true"
             app:waveColor="#55ffffff" />
 
-        <ImageView
-            android:layout_width="wrap_content"
+        <FrameLayout
+            android:layout_width="184dp"
+            android:layout_height="184dp"
+            android:layout_centerInParent="true"
+            >
+            <ImageView
+                android:id="@+id/start"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@mipmap/start_record"
+                />
+            <LinearLayout
+                android:id="@+id/count_down"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@mipmap/countdown_bg"
+                android:gravity="center"
+                android:visibility="gone">
+                <TextView
+                    android:id="@+id/count_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00:02:00"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:textSize="24sp"/>
+            </LinearLayout>
+        </FrameLayout>
+
+        <RelativeLayout
+            android:id="@+id/status"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@mipmap/start_record"
-            android:layout_centerInParent="true"/>
+            android:layout_marginBottom="56dp"
+            android:visibility="gone"
+            android:layout_alignParentBottom="true">
+            <TextView
+                android:id="@+id/pause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:drawablePadding="8dp"
+                android:layout_marginLeft="32dp"
+                android:drawableTop="@mipmap/pause"
+                android:text="暂停"
+                android:textColor="#ffffff"/>
+            <TextView
+                android:id="@+id/stop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="center_horizontal"
+                android:drawablePadding="8dp"
+                android:layout_marginRight="32dp"
+                android:drawableTop="@mipmap/stop"
+                android:text="结束"
+                android:textColor="#ffffff"/>
+        </RelativeLayout>
     </RelativeLayout>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -103,21 +160,24 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <RadioButton
+            android:id="@+id/record"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="hahha"
+            android:text="录屏"
             android:textColor="@color/login_next"
-            android:drawableTop="@mipmap/ic_launcher"
+            android:drawableTop="@drawable/record_selector"
             android:gravity="center_horizontal"
+            android:checked="true"
             android:button="@null"/>
         <RadioButton
+            android:id="@+id/user"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:layout_weight="1"
-            android:drawableTop="@mipmap/ic_launcher"
-            android:text="hahha"
+            android:drawableTop="@drawable/user_selector"
+            android:text="个人中心"
             android:textColor="@color/login_next"
             android:button="@null"/>
     </RadioGroup>
