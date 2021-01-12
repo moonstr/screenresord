@@ -25,6 +25,7 @@ android {
 dependencies {
     testImplementation 'junit:junit:4.12'
     implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
     implementation 'com.king.view:waveview:1.0.1'
     implementation 'de.hdodenhof:circleimageview:3.0.0'
     implementation 'com.nineoldandroids:library:2.4.0'

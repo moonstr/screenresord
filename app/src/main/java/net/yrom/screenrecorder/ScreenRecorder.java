@@ -191,6 +191,9 @@ public class ScreenRecorder {
         mVirtualDisplay.setSurface(mVideoEncoder.getInputSurface());
         if (VERBOSE) Log.d(TAG, "set surface to display: " + mVirtualDisplay.getDisplay());
     }
+    public void pause(){
+
+    }
 
     private void muxVideo(int index, MediaCodec.BufferInfo buffer) {
         if (!mIsRunning.get()) {
