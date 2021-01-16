@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="460dp"
+        android:layout_height="420dp"
         android:background="@drawable/home_top_bg">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -106,6 +106,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:drawablePadding="8dp"
+                android:visibility="gone"
                 android:layout_marginLeft="32dp"
                 android:drawableTop="@mipmap/pause"
                 android:text="暂停"
@@ -114,8 +115,8 @@
                 android:id="@+id/stop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
                 android:gravity="center_horizontal"
+                android:layout_centerInParent="true"
                 android:drawablePadding="8dp"
                 android:layout_marginRight="32dp"
                 android:drawableTop="@mipmap/stop"
@@ -140,6 +141,10 @@
             android:layout_marginTop="4dp"
             android:background="#6aaaff"/>
     </LinearLayout>
+    <VideoView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
     <com.flyco.tablayout.SegmentTabLayout
         android:id="@+id/tl_2"
         android:layout_width="match_parent"

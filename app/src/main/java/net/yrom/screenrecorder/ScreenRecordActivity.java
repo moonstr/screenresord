@@ -1,16 +1,18 @@
 package net.yrom.screenrecorder;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
 
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.widget.RadioGroup;
 
+import me.yokeyword.fragmentation.SupportActivity;
 
-public class ScreenRecordActivity extends AppCompatActivity {
-    RecordFragment recordFragment;
-    UserFragment userFragment;
+
+public class ScreenRecordActivity extends SupportActivity {
+    Fragment recordFragment;
+    Fragment userFragment;
     FragmentManager manager;
     FragmentTransaction transaction;
     RadioGroup radioGroup;
@@ -19,7 +21,7 @@ public class ScreenRecordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_recorder);
         radioGroup=findViewById(R.id.radio);
-         manager = getFragmentManager();
+         manager = getSupportFragmentManager();
         transaction= manager.beginTransaction();
          recordFragment = new RecordFragment();
         userFragment=new UserFragment();

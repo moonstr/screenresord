@@ -46,6 +46,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import me.yokeyword.fragmentation.SupportFragment;
 
 import static android.Manifest.permission.RECORD_AUDIO;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
@@ -53,7 +54,7 @@ import static android.content.Context.MEDIA_PROJECTION_SERVICE;
 import static android.os.Build.VERSION_CODES.M;
 import static net.yrom.screenrecorder.ScreenRecorder.VIDEO_AVC;
 
-public class RecordFragment extends Fragment {
+public class RecordFragment extends SupportFragment {
     private static final int REQUEST_MEDIA_PROJECTION = 1;
     private static final int REQUEST_PERMISSIONS = 2;
     WaveView waveView;
@@ -276,7 +277,7 @@ public class RecordFragment extends Fragment {
                 framerate, iframe, codec, VIDEO_AVC, profileLevel);
     }
     private String getSelectedVideoCodec() {
-        return "OMX.qcom.video.encoder.avc";
+        return "OMX.IMG.TOPAZ.VIDEO.Encoder";
     }
     private int[] getSelectedWithHeight() {
         String[] xes=new String[]{};
@@ -360,6 +361,7 @@ public class RecordFragment extends Fragment {
             mRecorder.quit();
         }
         mRecorder = null;
+        if (timer!=null)
         timer.cancel();
         showIdleUi();
 //        mButton.setText(getString(R.string.restart_recorder));
@@ -483,8 +485,11 @@ public class RecordFragment extends Fragment {
                     Log.i("设置时间","stringBuffer:"+stringBuffer.toString());
 
                     countText.setText(stringBuffer);
-                    if (num == 0)
+                    if (num == 0){
                         timer.cancel();//0秒结束
+                        stopRecordingAndOpenFile(getContext());
+
+                    }
                     num--;
                     break;
                 default:
